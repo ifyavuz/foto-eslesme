@@ -18,21 +18,31 @@ const kartTemplate = `
 let randomNum = function(){
     let randomArray = [];
     for (let i = 0; i < 8; i++){
-       let randomNumbers = Math.floor(Math.random() * 99);
+       let randomNumbers = Math.floor(Math.random() * 100);
         randomArray.push(randomNumbers, randomNumbers);
         if (randomArray.length > 6) break;
     }
-    return randomArray
+    //console.log(randomArray)
+    return randomArray 
 };
 
+function shuffle(arr){
+    let shufleArray = []
+    while (arr.length > 0){
+        let rnd = Math.floor(Math.random() * arr.length)
+        shufleArray.push(arr[rnd])
+        arr.splice(rnd,1)
+    }
+    return shufleArray
+}
 
 /*
 Görev 2: Bu numaraları 1-99 arası(1 ve 99 dahil) sayılardan rastgele 4 çift oluşturacak şekilde üreten bir fonksiyon yazarak, kod bloğundaki array değerini bu fonksiyondan dönen array ile değiştiren kodları yazın
 */
-const fotoNumaralari = [10, 20, 30, 20, 10, 40, 40, 30];
+let fotoNumaralari = [10, 20, 30, 20, 10, 40, 40, 30];
+fotoNumaralari = shuffle( randomNum() )
 
 
-console.log(fotoNumaralari);
 
 for (fotoNumara of fotoNumaralari) {
     const yenikart = document.createElement("div");
